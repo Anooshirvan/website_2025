@@ -8,7 +8,41 @@ import { useProjectsManager } from '../services/dataService';
 
 // Keep static projects as fallback
 const staticProjects = [
-  // Your existing static projects array
+  {
+    title: "Energy Data Analysis Dashboard",
+    description: "Interactive dashboard for analyzing energy consumption patterns across different sectors. Implemented using React and D3.js with data processing in Python.",
+    tags: ["React", "D3.js", "Python", "Data Analysis"],
+    image: "/images/project1.jpg",
+    links: {
+      github: "https://github.com/yourusername/energy-dashboard",
+      demo: "https://energy-dashboard-demo.com"
+    }
+  },
+  {
+    title: "Renewable Energy Forecasting",
+    description: "Machine learning model to predict renewable energy generation based on weather patterns and historical data. Achieved 92% accuracy in day-ahead forecasting.",
+    tags: ["Machine Learning", "Python", "TensorFlow", "Time Series"],
+    image: "/images/project2.jpg",
+    links: {
+      github: "https://github.com/yourusername/renewable-forecast"
+    }
+  },
+  {
+    title: "Smart Grid Optimization System",
+    description: "Developed an optimization algorithm for energy distribution in smart grids, reducing energy losses by 15% in simulation environments.",
+    tags: ["Optimization", "Python", "MATLAB", "Smart Grid"],
+    image: "/images/project3.jpg",
+    links: {}
+  },
+  {
+    title: "Energy Consumption Analyzer",
+    description: "Web application that helps users track and analyze their energy usage patterns, providing personalized recommendations for reducing consumption.",
+    tags: ["React", "Node.js", "MongoDB", "Data Visualization"],
+    image: "/images/project4.jpg",
+    links: {
+      demo: "https://energy-analyzer.com"
+    }
+  }
 ];
 
 const Projects = () => {
@@ -16,7 +50,7 @@ const Projects = () => {
   const { projects, loading } = useProjectsManager();
   
   // Map projects data to the format expected by ProjectCard
-  const displayProjects = loading 
+  const displayProjects = loading || projects.length === 0
     ? staticProjects 
     : projects.map(item => ({
         title: item.title,
